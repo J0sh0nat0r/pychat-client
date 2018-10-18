@@ -1,5 +1,6 @@
 import asyncio
 import ipaddress
+import threading
 
 import util
 from client import Client
@@ -25,6 +26,7 @@ name = util.input_validated(
 
 client = Client(name)
 
+
 async def main(c: Client):
     await c.connect(ip, port)
 
@@ -36,5 +38,6 @@ async def main(c: Client):
         )
 
         await c.send_message(msg)
+
 
 asyncio.run(main(client))
